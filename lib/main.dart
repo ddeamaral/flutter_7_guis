@@ -1,3 +1,4 @@
+import 'package:andplus_flutter_7_gui/flight_booker.dart';
 import 'package:andplus_flutter_7_gui/timer.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +25,9 @@ class _MainMenuState extends State<MainMenu> {
             ),
         "/counter": (BuildContext context) => Counter(title: "Counter Page"),
         "/converter": (BuildContext context) => Converter(title: "Converter"),
-        "/timer": (BuildContext context) => Timer(title: "Timer")
+        "/timer": (BuildContext context) => Timer(title: "Timer"),
+        "/flightbooker": (BuildContext context) =>
+            FlightBooker(title: "Flight Booker")
       },
     );
   }

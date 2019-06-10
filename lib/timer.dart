@@ -13,6 +13,7 @@ class Timer extends StatefulWidget {
 class _TimerState extends State<Timer> {
   int _secondsValue = 0;
   double progressValue = 0;
+  Stopwatch watch = new Stopwatch();
   AnimationController animationController;
   Animation<Color> animation;
   flutter.Timer timer;
@@ -46,17 +47,30 @@ class _TimerState extends State<Timer> {
               onChanged: (double sliderValue) {
                 setState(() {
                   _secondsValue = sliderValue.floor();
-                  timer = flutter.Timer.periodic(
-                      Duration(seconds: _secondsValue), (_timer) {
-                    progressValue = _timer.tick / _secondsValue;
-                    print("${progressValue} = $_timer.tick");
-                  });
                 });
               },
               onChangeEnd: (double sliderValue) {
-                int milliseconds = (_secondsValue * 1000).toInt();
+                if (timer != null) {
+                  // Not sure why onChangeEnd is being called multiple times...
+                  // Resetting the timer every time causes issues too
+                  return;
+                }
 
-                Duration d = new Duration(milliseconds: milliseconds);
+                timer = flutter.Timer.periodic(Duration(seconds: 1), (_timer) {
+                  if (watch.elapsed.inSeconds > 0 && _secondsValue > 0) {
+                    print("calling state overwrite");
+                    print(_secondsValue);
+                    setState(() {
+                      // THIS SET STATE DOESN'T WORK
+                      progressValue =
+                          watch.elapsed.inSeconds / _secondsValue == 0
+                              ? 1
+                              : _secondsValue;
+                      _secondsValue = _secondsValue - watch.elapsed.inSeconds;
+                    });
+                  }
+                });
+                watch.start();
               },
             ),
             LinearProgressIndicator(

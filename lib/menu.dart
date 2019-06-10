@@ -46,6 +46,21 @@ class _MenuState extends State<Menu> {
       ListTile(
         key: Key("3"),
         leading: Icon(
+          Icons.airline_seat_recline_normal,
+          size: iconSize,
+          color: Colors.indigo,
+        ),
+        title: Text(
+          "Flight Booker",
+          style: listItemStyle,
+        ),
+        onTap: () {
+          Navigator.pushNamed(context, "/flightbooker");
+        },
+      ),
+      ListTile(
+        key: Key("4"),
+        leading: Icon(
           Icons.alarm,
           size: iconSize,
           color: Colors.red,
@@ -57,7 +72,7 @@ class _MenuState extends State<Menu> {
         onTap: () {
           Navigator.pushNamed(context, "/timer");
         },
-      )
+      ),
     ];
 
     return Material(
