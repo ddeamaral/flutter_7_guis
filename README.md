@@ -1,6 +1,6 @@
 # andplus_flutter_7_gui
 
-A new Flutter project.
+A new Flutter project whose intent is to showcase the [7 GUIs](https://eugenkiss.github.io/7guis/tasks), using Flutter. The purpose of doing so is to test the maturity of flutter, as well as difficulty to achieve common tasks, and flesh out any potential stumbling blocks along the way. This will be used as a basis for a flutter brown bag at the company I work for.
 
 ## Getting Started
 
