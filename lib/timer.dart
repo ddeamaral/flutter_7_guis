@@ -62,16 +62,11 @@ class _TimerState extends State<Timer> {
               },
               onChangeEnd: (double sliderValue) {
                 if (timer != null) {
-                  // Not sure why onChangeEnd is being called multiple times...
-                  // Resetting the timer every time causes issues too
                   return;
                 }
 
                 watch.start();
                 timer = flutter.Timer.periodic(Duration(seconds: 1), (t) {
-                  print(
-                      'tick ${t.tick}, ${watch.elapsed.inSeconds.toDouble()} / $_secondsValue = $progressValue, $_secondsValue');
-
                   setState(() {
                     progressValue =
                         watch.elapsed.inSeconds.toDouble() / _secondsValue;
