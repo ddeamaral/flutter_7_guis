@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'converter.dart';
 import 'counter.dart';
+import 'widgets/crud/crud.dart';
 import 'menu.dart';
 
 void main() => runApp(MainMenu());
@@ -27,7 +28,8 @@ class _MainMenuState extends State<MainMenu> {
         "/converter": (BuildContext context) => Converter(title: "Converter"),
         "/timer": (BuildContext context) => Timer(title: "Timer"),
         "/flightbooker": (BuildContext context) =>
-            FlightBooker(title: "Flight Booker")
+            FlightBooker(title: "Flight Booker"),
+        "/crud": (BuildContext context) => Crud(title: "CRUD")
       },
     );
   }

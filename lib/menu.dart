@@ -18,8 +18,11 @@ class _MenuState extends State<Menu> {
     List<Widget> menuItems = <Widget>[
       ListTile(
         key: Key("1"),
-        leading:
-            Icon(Icons.plus_one, size: iconSize, color: Colors.yellow[800]),
+        leading: Icon(
+          Icons.plus_one,
+          size: iconSize,
+          color: Colors.yellow[800],
+        ),
         title: Text(
           "Counter",
           style: listItemStyle,
@@ -71,6 +74,21 @@ class _MenuState extends State<Menu> {
         ),
         onTap: () {
           Navigator.pushNamed(context, "/timer");
+        },
+      ),
+      ListTile(
+        key: Key("5"),
+        leading: Icon(
+          Icons.person_add,
+          size: iconSize,
+          color: Colors.red,
+        ),
+        title: Text(
+          "CRUD",
+          style: listItemStyle,
+        ),
+        onTap: () {
+          Navigator.pushNamed(context, "/crud");
         },
       ),
     ];
